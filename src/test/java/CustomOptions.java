@@ -1,8 +1,9 @@
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserContext;
-import com.microsoft.playwright.BrowserType;
+import com.microsoft.playwright.*;
 import com.microsoft.playwright.junit.Options;
 import com.microsoft.playwright.junit.OptionsFactory;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.util.Arrays;
 
@@ -22,6 +23,5 @@ public class CustomOptions implements OptionsFactory {
                                         "--disable-gpu",
                                         "--disable-extensions"))
                 );
-
     }
 }

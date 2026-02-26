@@ -8,14 +8,16 @@ import java.util.Arrays;
 
 @UsePlaywright ()
 public  class simplePlaywrightTest {
+
         private static Playwright playwright;
-       private static Browser browser;
+        private static Browser browser;
         private   static BrowserContext browserContext;
         Page titlePage;
+
         @BeforeAll
         static void setUpAll(){
             playwright = Playwright.create();
-            browser=playwright.chromium().launch(
+            browser = playwright.chromium().launch(
                     new BrowserType.LaunchOptions()
                             .setHeadless(false)
                             .setArgs(Arrays.asList("--no-sandbox",
@@ -29,7 +31,6 @@ public  class simplePlaywrightTest {
         void setUp(){
             titlePage= browserContext.newPage();
         }
-
         @AfterAll
         static void tearDown(){
             browser.close();
@@ -51,5 +52,4 @@ public  class simplePlaywrightTest {
             int matchingSearchResult = titlePage.locator(".card").count();
             Assertions.assertTrue(matchingSearchResult > 0);
         }
-
 }
